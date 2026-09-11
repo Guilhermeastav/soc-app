@@ -13,12 +13,15 @@ flutter run -d chrome
 
 ## Como trabalhar no projeto
 
-Todo trabalho acontece em branches; a entrega de cada atividade é um Pull Request para `main`.
+Cada aluno trabalha no próprio fork; a entrega de cada atividade é um Pull Request do fork para
+o `main` deste repositório.
 
 ### Uma vez, ao começar
 
+No GitHub, clique em **Fork** neste repositório. Depois:
+
 ```bash
-git clone https://github.com/guipaiva/soc-app.git
+git clone https://github.com/<seu-usuario>/soc-app.git
 cd soc-app
 flutter pub get
 flutter run -d chrome
@@ -26,15 +29,18 @@ flutter run -d chrome
 
 ### Toda atividade
 
+No GitHub, no seu fork, clique em **Sync fork** para trazer o `main` atualizado. Depois:
+
 ```bash
 git checkout main
 git pull
-git checkout -b aula-06-fulano         # número da aula + seu usuário do GitHub
+git checkout -b aula-06              # número da aula
 # ... trabalho, commits ...
-git push -u origin aula-06-fulano
+git push -u origin aula-06
 ```
 
-Depois, no GitHub, abra um Pull Request do branch para `main` e cole o link no Canvas.
+Depois, no GitHub, abra um Pull Request do seu branch para o `main` de `guipaiva/soc-app` e cole
+o link no Canvas.
 
 O PR não é mergeado. Na semana seguinte, o `main` já traz a versão de referência daquela atividade.
 

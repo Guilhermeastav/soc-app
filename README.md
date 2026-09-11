@@ -13,9 +13,7 @@ flutter run -d chrome
 
 ## Como trabalhar no projeto
 
-Todos os grupos trabalham neste repositório. O `main` é o estado de referência do app,
-atualizado toda semana pelo professor, e **não recebe commit de aluno**: todo trabalho acontece
-em branches, e a entrega de cada atividade é um Pull Request para `main`.
+Todo trabalho acontece em branches; a entrega de cada atividade é um Pull Request para `main`.
 
 ### Uma vez, ao começar
 
@@ -30,15 +28,14 @@ flutter run -d chrome
 
 ```bash
 git checkout main
-git pull                              # traz o estado de referência da semana
-git checkout -b aula-06-grupo-03      # número da aula + número do grupo
+git pull
+git checkout -b aula-06-fulano         # número da aula + seu usuário do GitHub
 # ... trabalho, commits ...
-git push -u origin aula-06-grupo-03
+git push -u origin aula-06-fulano
 ```
 
 Depois, no GitHub, abra um Pull Request do branch para `main` e cole o link no Canvas.
 
-O PR não é mergeado: ele existe para mostrar o diff. Na semana seguinte, o `main` já traz a versão
-de referência daquela atividade, e o grupo parte dela.
+O PR não é mergeado. Na semana seguinte, o `main` já traz a versão de referência daquela atividade.
 
 O PR precisa compilar (`flutter analyze` sem erros) e a tela precisa abrir com `flutter run -d chrome`.

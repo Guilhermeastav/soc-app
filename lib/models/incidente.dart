@@ -1,6 +1,24 @@
 enum Severidade { critico, alto, medio, baixo }
 
-enum StatusIncidente { aberto, emAndamento, resolvido }
+enum StatusIncidente {
+  aberto('Aberto'),
+  emAndamento('Em andamento'),
+  resolvido('Resolvido');
+
+  final String texto;
+  const StatusIncidente(this.texto);
+
+  StatusIncidente get proximo {
+    switch (this) {
+      case StatusIncidente.aberto:
+        return StatusIncidente.emAndamento;
+      case StatusIncidente.emAndamento:
+        return StatusIncidente.resolvido;
+      case StatusIncidente.resolvido:
+        return StatusIncidente.aberto;
+    }
+  }
+}
 
 class Incidente {
   final String id;
@@ -11,7 +29,7 @@ class Incidente {
   final DateTime abertoEm;
   final String? responsavel;
 
-  Incidente({
+  const Incidente({
     required this.id,
     required this.titulo,
     required this.tipo,
@@ -21,7 +39,7 @@ class Incidente {
     this.responsavel,
   });
 
-  String get tempoDecorrido {
+  String get abertoHa {
     final decorrido = DateTime.now().difference(abertoEm);
     if (decorrido.inMinutes < 60) {
       return 'há ${decorrido.inMinutes}min';

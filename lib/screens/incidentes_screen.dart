@@ -55,7 +55,7 @@ final List<Incidente> incidentes = [
     titulo: 'Certificado TLS expirado — intranet',
     tipo: 'Outro',
     severidade: Severidade.baixo,
-    status: StatusIncidente.resolvido,
+    status: StatusIncidente.resolvido, //retirar o status padrão e passar para um enum proprio 
     abertoEm: _agora.subtract(const Duration(days: 4)),
     responsavel: 'Carlos Lima',
   ),

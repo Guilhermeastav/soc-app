@@ -107,7 +107,9 @@ class _ListaIncidentesScreenState extends State<ListaIncidentesScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.all(12),
-            child: Row(
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
               children: [
                 ChoiceChip(
                   label: const Text('Todos'),
@@ -118,7 +120,6 @@ class _ListaIncidentesScreenState extends State<ListaIncidentesScreen> {
                     });
                   },
                 ),
-                const SizedBox(width: 8),
                 ChoiceChip(
                   label: const Text('Em andamento'),
                   selected: filtro == StatusIncidente.emAndamento,
@@ -128,7 +129,6 @@ class _ListaIncidentesScreenState extends State<ListaIncidentesScreen> {
                     });
                   },
                 ),
-                const SizedBox(width: 8),
                 ChoiceChip(
                   label: const Text('Resolvidos'),
                   selected: filtro == StatusIncidente.resolvido,

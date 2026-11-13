@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 enum Severidade { critico, alto, medio, baixo }
 
 enum StatusIncidente {
@@ -43,6 +45,19 @@ class Incidente {
     this.ipRelacionado,
   });
 
+  Map<String, dynamic> toMap() {
+    return {
+      'titulo': titulo,
+      'tipo': tipo,
+      'severidade': severidade.name,
+      'status': status.name,
+      'abertoEm': abertoEm,
+      'responsavel': responsavel,
+      'descricao': descricao,
+      'ipRelacionado': ipRelacionado,
+    };
+  }
+
   String get abertoHa {
     final decorrido = DateTime.now().difference(abertoEm);
     if (decorrido.inMinutes < 60) {
@@ -54,4 +69,19 @@ class Incidente {
     final dias = decorrido.inDays;
     return dias == 1 ? 'há 1 dia' : 'há $dias dias';
   }
+}
+
+Incidente incidenteDoFirestore(String id, Map<String, dynamic> dados) {
+  final Timestamp abertoEm = dados['abertoEm'];
+  return Incidente(
+    id: id,
+    titulo: dados['titulo'],
+    tipo: dados['tipo'],
+    severidade: Severidade.values.byName(dados['severidade']),
+    status: StatusIncidente.values.byName(dados['status']),
+    abertoEm: abertoEm.toDate(),
+    responsavel: dados['responsavel'],
+    descricao: dados['descricao'],
+    ipRelacionado: dados['ipRelacionado'],
+  );
 }

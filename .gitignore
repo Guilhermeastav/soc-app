@@ -50,3 +50,6 @@ app.*.map.json
 # Configuração do Firebase de cada aluno — não vai para o repositório
 lib/firebase_options.dart
 firebase.json
+
+# Chave da AbuseIPDB de cada aluno — não vai para o repositório
+chaves.json
